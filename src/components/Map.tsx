@@ -13,7 +13,7 @@ export const Map = (props: MapProps) => {
   const { position, setInitialPosition } = useContext(PlayerContext);
   const { mapInfo, setMap, getTile } = useContext(MapContext);
   const { map } = props;
-  
+
   useEffect(() => {
     setMap(map);
     setInitialPosition(map);
@@ -36,7 +36,7 @@ export const Map = (props: MapProps) => {
               return <Player />;
             }
 
-            return <Tile key={'tile'+i} type={tile} />;
+            return <Tile key={"tile" + i} type={tile} position={i} />;
           })
         : null}
     </div>
