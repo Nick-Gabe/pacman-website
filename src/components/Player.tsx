@@ -37,5 +37,5 @@ export const Player = (props: PlayerProps) => {
       document.onkeydown = movePlayer
     }, [])
 
-  return <div className="w-10 h-10 bg-red-300"></div>;
+  return <div className="w-10 h-10 bg-yellow"></div>;
 };
