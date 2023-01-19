@@ -1,0 +1,54 @@
+[
+  {
+    "id": "0",
+    "name": "testing map",
+    "map": [
+      "xxxxxxxxxxx",
+      "x-x----xxxx",
+      "x-x-xx----x",
+      "x-xxx-xxx-x",
+      "x-xxx-xxx-x",
+      "x----o----x",
+      "x-xxx-xxx-x",
+      "x-xxx-xxx-x",
+      "x---------x",
+      "xx-------xx",
+      "-xxxxxxxxx-"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "big map",
+    "map": [
+      "-xxxxxxxxxxxxxxxxxxx-",
+      "-x--------x--------x-",
+      "-x-xx-xxx-x-xxx-xx-x-",
+      "-x-----------------x-",
+      "-x-xx-x-xxxxx-x-xx-x-",
+      "-x----x---x---x----x-",
+      "-xxxx-xxx-x-xxx-xxxx-",
+      "----x-x-------x-x----",
+      "xxxxx-x-xxxxx-x-xxxxx",
+      "--------x---x--------",
+      "xxxxx-x-xxxxx-x-xxxxx",
+      "----x-x-------x-x----",
+      "-xxxx-x-xxxxx-x-xxxx-",
+      "-x--------x--------x-",
+      "-x-xx-xxx-x-xxx-xx-x-",
+      "-x--x-----o-----x--x-",
+      "-xx-x-x-xxxxx-x-x-xx-",
+      "-x----x---x---x----x-",
+      "-x-xxxxxx-x-xxxxxx-x-",
+      "-x-----------------x-",
+      "-xxxxxxxxxxxxxxxxxxx-"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "super mini map",
+    "map": [
+      "xx",
+      "o-"
+    ]
+  }
+]

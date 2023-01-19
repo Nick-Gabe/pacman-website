@@ -1,6 +1,7 @@
 import { Map } from "./components/Map";
 import { MapContextProvider } from "./contexts/MapContext";
 import { PlayerContextProvider } from "./contexts/PlayerContext";
+import maps from './resources/maps.json';
 
 type AppProps = {};
 
@@ -9,19 +10,7 @@ export default (props: AppProps) => {
     <MapContextProvider>
       <PlayerContextProvider>
         <Map
-          map={[
-            "xxxxxxxxxxx",
-            "x-x----xxxx",
-            "x-x-xx----x",
-            "x-xxx-xxx-x",
-            "x-xxx-xxx-x",
-            "x----o----x",
-            "x-xxx-xxx-x",
-            "x-xxx-xxx-x",
-            "x---------x",
-            "xx-------xx",
-            "-xxxxxxxxx-",
-          ]}
+          map={maps[1].map}
         />
       </PlayerContextProvider>
     </MapContextProvider>
