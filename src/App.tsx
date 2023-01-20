@@ -1,4 +1,4 @@
-import { Map } from "./components/Map";
+import { Map } from "./components/environment/Map";
 import { MapContextProvider } from "./contexts/MapContext";
 import { PlayerContextProvider } from "./contexts/PlayerContext";
 import maps from './resources/maps.json';

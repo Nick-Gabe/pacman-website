@@ -1,0 +1,35 @@
+.player::before {
+  content: '';
+  position: absolute;
+  border: 20px solid transparent;
+  border-left-color: black;
+  border-width: 15px 21px;
+  animation: mouth-moving .2s linear 0s infinite alternate;
+}
+
+.player {
+  transition: transform ease .2s;
+}
+
+.player[data-direction="top"] {
+  --angle: 90deg;
+}
+.player[data-direction="right"] {
+  --angle: 180deg;
+}
+.player[data-direction="bottom"] {
+  --angle: 270deg;
+}
+.player[data-direction="left"] {
+  --angle: 0deg;
+}
+
+@keyframes mouth-moving {
+  from {
+    border-width: 15px 21px;
+  }
+
+  to {
+    border-width: 0px 21px;
+  }
+}

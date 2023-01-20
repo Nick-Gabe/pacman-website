@@ -1,5 +1,1 @@
-type TileTypes = {
-  x: "wall";
-  "-": "empty";
-  o: "player";
-};
+type TileTypes = typeof import('../resources/entities').entityMap;

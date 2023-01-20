@@ -1,4 +1,5 @@
 import { PropsWithChildren, createContext, useState } from "react";
+import { entityMap } from "../resources/entities";
 
 export type MapContextState = {
   mapInfo: {
@@ -27,12 +28,6 @@ export const MapContextProvider: React.FC<PropsWithChildren> = props => {
   }
 
   const getTile: MapContextState["getTile"] = (column, row) => {
-    const entityMap: TileTypes = {
-      x: "wall",
-      "-": "empty",
-      o: "player",
-    };
-
     const entity = mapInfo.map?.[row]?.[column] as keyof TileTypes;
 
     return (entityMap?.[entity] || 'empty') as ValueOf<TileTypes>;
