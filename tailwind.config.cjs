@@ -16,6 +16,9 @@ module.exports = {
       orange: '#FD9801',
       pink: '#FF9997',
       transparent: '#00000000'
+    },
+    boxShadow: {
+      lg: '0 7px 0 0'
     }
   },
   plugins: [],

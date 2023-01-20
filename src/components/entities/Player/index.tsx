@@ -97,7 +97,7 @@ export const Player = (props: PlayerProps) => {
         top: (position.row || 1) * 1.75 + "rem",
         left: (position.column || 1) * 1.75 + "rem",
       }}
-      className={`player w-7 h-7 bg-yellow rounded-full flex items-center justify-center absolute rotate-[var(--angle)]`}
+      className={`player w-7 h-7 bg-yellow rounded-full flex items-center justify-center absolute rotate-[var(--angle)] z-50`}
     ></div>
   );
 };

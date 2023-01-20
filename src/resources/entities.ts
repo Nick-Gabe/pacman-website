@@ -3,5 +3,6 @@ export const entityMap = {
   "-": "empty",
   o: "player",
   p: "power",
-  "+": "points"
+  "+": "points",
+  "0": "ghostSpawn"
 };
