@@ -20,25 +20,24 @@ export const Map = (props: MapProps) => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: `repeat(${mapInfo.columns}, 1fr)`,
-        gridTemplateRows: `repeat(${mapInfo.rows}, 1fr)`,
-      }}
-    >
-      {mapInfo.map
-        ? new Array(mapInfo.area).fill(0).map((x, i) => {
-            const { row, column } = numberToAxis(mapInfo, i);
-            const tile = getTile(column, row);
+    <main className="relative">
+      <Player />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${mapInfo.columns}, 1fr)`,
+          gridTemplateRows: `repeat(${mapInfo.rows}, 1fr)`,
+        }}
+      >
+        {mapInfo.map
+          ? new Array(mapInfo.area).fill(0).map((x, i) => {
+              const { row, column } = numberToAxis(mapInfo, i);
+              const tile = getTile(column, row);
 
-            if (position.column === column && position.row === row) {
-              return <Player />;
-            }
-
-            return <Tile key={"tile" + i} type={tile} position={i} />;
-          })
-        : null}
-    </div>
+              return <Tile key={"tile" + i} type={tile} position={i} />;
+            })
+          : null}
+      </div>
+    </main>
   );
 };

@@ -75,7 +75,7 @@ export const Tile = (props: TileProps) => {
       return (
         <div
           style={{ ...adjacentTilesArray, ...borderRadius }}
-          className={`bg-black border-[3px] border-blue w-10 h-10`}
+          className={`bg-black border-[3px] border-blue w-7 h-7 shadow-lg shadow-blue`}
         ></div>
       );
     },

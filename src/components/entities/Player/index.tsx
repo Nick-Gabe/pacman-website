@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { PlayerContext } from "../../../contexts/PlayerContext";
 import { MapContext } from "../../../contexts/MapContext";
 import "./player.css";
@@ -6,52 +6,98 @@ import "./player.css";
 type PlayerProps = {};
 
 export const Player = (props: PlayerProps) => {
-  const { position, setPosition, lastDirection, setDirection } =
+  const { position, setPosition, movement, setMovement } =
     useContext(PlayerContext);
   const playerRef = useRef<HTMLDivElement>(null);
-
+  const [pressedDirection, setPressedDirection] = useState<Directions | null>(
+    null
+  );
   const { getTile } = useContext(MapContext);
 
-  const movePlayer = (event: KeyboardEvent) => {
-    let row = position.row || 0;
-    let column = position.column || 0;
-    let direction: Directions = "left";
+  const movePlayer = () => {
+    const calculateNextPosition = (direction: Directions | null) => {
+      let row = position.row || 0;
+      let column = position.column || 0;
 
-    switch (event.key) {
-      case "ArrowDown":
-        row++;
-        direction = "bottom";
-        break;
-      case "ArrowUp":
-        row--;
-        direction = "top";
-        break;
-      case "ArrowLeft":
-        column--;
-        direction = "left";
-        break;
-      case "ArrowRight":
-        column++;
-        direction = "right";
-        break;
+      switch (direction) {
+        case "bottom":
+          row++;
+          break;
+        case "top":
+          row--;
+          break;
+        case "left":
+          column--;
+          break;
+        case "right":
+          column++;
+          break;
+      }
+
+      return { column, row };
+    };
+
+    let nextPosition = calculateNextPosition(pressedDirection);
+    const tileToMove = getTile(
+      nextPosition.column,
+      nextPosition.row
+    );
+    let nextTileIsWall = false;
+
+    if (tileToMove === "wall") {
+      nextTileIsWall = true;
+      nextPosition = calculateNextPosition(movement.lastDirection);
+      const tileToMove = getTile(nextPosition.column, nextPosition.row);
+
+      if (tileToMove === "wall") {
+        setMovement({
+          isMoving: false,
+        });
+        return;
+      };
     }
 
-    const tileToMove = getTile(column, row);
-    if (tileToMove === "wall") return;
-
-    setDirection(direction);
-    setPosition({ row, column });
+    setMovement({
+      lastDirection: nextTileIsWall ? movement.lastDirection : pressedDirection,
+      isMoving: true,
+    });
+    setPosition({
+      row: nextPosition.row,
+      column: nextPosition.column,
+    });
   };
 
   useEffect(() => {
-    document.onkeydown = movePlayer;
+    document.onkeydown = (event: KeyboardEvent) => {
+      let directions: Record<KeyboardEvent["key"], Directions> = {
+        ArrowDown: "bottom",
+        ArrowUp: "top",
+        ArrowLeft: "left",
+        ArrowRight: "right",
+      };
+
+      const direction = directions[event.key];
+      if (!direction) return;
+
+      setPressedDirection(direction);
+    };
   }, []);
+
+  useEffect(() => {
+    const loop = setInterval(() => movePlayer(), 200);
+    return () => clearInterval(loop);
+  }, [movePlayer]);
 
   return (
     <div
       ref={playerRef}
-      data-direction={lastDirection}
-      className="player w-10 h-10 bg-yellow rounded-full flex items-center justify-center relative rotate-[var(--angle)]"
+      data-direction={movement.lastDirection}
+      data-moving={movement.isMoving}
+      style={{
+        top: (position.row || 1) * 1.75 + "rem",
+        left: (position.column || 1) * 1.75 + "rem",
+      }}
+      className={`player w-7 h-7 bg-yellow rounded-full flex items-center justify-center absolute rotate-[var(--angle)]`}
     ></div>
   );
 };

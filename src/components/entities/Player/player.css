@@ -3,12 +3,22 @@
   position: absolute;
   border: 20px solid transparent;
   border-left-color: black;
-  border-width: 15px 21px;
+  border-width: 10px 14px;
+}
+
+.player[data-moving=true]::before {
   animation: mouth-moving .2s linear 0s infinite alternate;
 }
 
+@keyframes mouth-moving {
+  to {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+  }
+}
+
 .player {
-  transition: transform ease .2s;
+  transition: transform ease .2s, top linear .2s, left linear .2s;
 }
 
 .player[data-direction="top"] {
@@ -21,15 +31,5 @@
   --angle: 270deg;
 }
 .player[data-direction="left"] {
-  --angle: 0deg;
-}
-
-@keyframes mouth-moving {
-  from {
-    border-width: 15px 21px;
-  }
-
-  to {
-    border-width: 0px 21px;
-  }
+  --angle: 360deg;
 }

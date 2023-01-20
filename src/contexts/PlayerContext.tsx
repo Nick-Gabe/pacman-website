@@ -1,48 +1,66 @@
 import React, {
   PropsWithChildren,
   createContext,
+  useContext,
   useReducer,
-  useState,
 } from "react";
-import { MapContextState } from "./MapContext";
-
-const initialState = {
-  column: null,
-  row: null,
-};
+import { MapContext, MapContextState } from "./MapContext";
+import { genericReducer } from "../utils/genericReducer";
 
 type InitialStateType = {
   column: number | null;
   row: number | null;
 };
 
+type Movement = {
+  lastDirection: Directions | null;
+  isMoving: boolean;
+};
+
 export type PlayerContextState = {
   position: InitialStateType;
-  lastDirection: Directions;
-  setDirection: (dir: Directions) => void;
+  movement: Movement;
+  setMovement: (dir: Partial<Movement>) => void;
   setPosition: ({
     column,
     row,
   }: Record<keyof InitialStateType, number>) => void;
-  setInitialPosition: (map: MapContextState['mapInfo']['map']) => void;
+  setInitialPosition: (map: MapContextState["mapInfo"]["map"]) => void;
 };
 
-export const PlayerContext = createContext({
-  position: initialState,
-} as PlayerContextState);
+export const PlayerContext = createContext({} as PlayerContextState);
 
 export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
-  const [position, setPosition] = useReducer<
-    React.Reducer<InitialStateType, Partial<InitialStateType>>
-  >((state, action) => {
-    return {
-      ...state,
-      ...action,
-    };
-  }, initialState);
-  const [lastDirection, setDirection] = useState<Directions>('left');
+  const { mapInfo } = useContext(MapContext);
 
-  const setInitialPosition: PlayerContextState['setInitialPosition'] = (map) => {
+  const [position, setPosition] = useReducer(
+    (state: InitialStateType, action: Partial<InitialStateType>) => {
+      if (action.column) {
+        if (action.column <= 0) action.column = mapInfo.columns;
+        else if (action.column === mapInfo.columns) action.column = 0;
+      }
+      if (action.row) {
+        if (action.row <= 0) action.row = mapInfo.rows;
+        else if (action.row === mapInfo.rows) action.row = 0;
+      }
+
+      return {
+        ...state,
+        ...action,
+      };
+    },
+    {
+      column: 0,
+      row: 0,
+    }
+  );
+
+  const [movement, setMovement] = useReducer(genericReducer<Movement>, {
+    lastDirection: null,
+    isMoving: false,
+  });
+
+  const setInitialPosition: PlayerContextState["setInitialPosition"] = map => {
     const initialRow = map.findIndex(row => row.includes("o"));
     const initialCol = map[initialRow].indexOf("o");
 
@@ -53,7 +71,15 @@ export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
   };
 
   return (
-    <PlayerContext.Provider value={{ position, setPosition, setInitialPosition, lastDirection, setDirection }}>
+    <PlayerContext.Provider
+      value={{
+        position,
+        setPosition,
+        setInitialPosition,
+        movement,
+        setMovement,
+      }}
+    >
       {props.children}
     </PlayerContext.Provider>
   );
