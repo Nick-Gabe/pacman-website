@@ -31,7 +31,10 @@ export const MapContextProvider: React.FC<PropsWithChildren> = props => {
   );
 
   const setMap = (map: string[]) => {
-    const columns = map[0].length;
+    const sortByBiggestStr = (a: string, b: string) => a.length <= b.length ? 1 : -1;
+    const columns = map.sort(sortByBiggestStr)[0].length;
+    map = map.map(x => x.padEnd(columns, '-'));
+    
     const rows = map.length;
     const area = columns * rows;
 
