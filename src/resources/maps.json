@@ -2,6 +2,7 @@
   {
     "id": 0,
     "name": "testing map",
+    "author": "Nick Gabe",
     "map": [
       "xxxxxxxxxxx",
       "x-x----xxxx",
@@ -19,6 +20,7 @@
   {
     "id": 1,
     "name": "big map",
+    "author": "Nick Gabe",
     "map": [
       "-xxxxxxxxxxxxxxxxxxx-",
       "-x++++++++x++++++++x-",
@@ -46,12 +48,157 @@
   {
     "id": 2,
     "name": "super mini map",
+    "author": "Nick Gabe",
     "map": [
       "x-x-x-x",
       "-------",
       "x-xox-x",
       "-------",
       "x-x-x-x"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Similar big map",
+    "author": "ChatGPT",
+    "map": [
+      "-xxxxxxxxxxxxxxxxxxx-",
+      "-x++++++++x++++++++x-",
+      "-xpxx+xxx+x+xxx+xxpx-",
+      "-x+++++++++++++++++x-",
+      "-x+xx+x+xxx+x+x+xx+x-",
+      "-x++++x+++x+++x++++x-",
+      "-xxxx+xxx+x+xxx+xxxx-",
+      "----x+x-------x+x----",
+      "xxxxx+x+xx+xx+x+xxxxx",
+      "-----+--+x+++x--+-----",
+      "xxxxx+x+xxxxx+x+xxxxx",
+      "----x+x-------x+x----",
+      "-xxxx+x+xxxxx+x+xxxx-",
+      "-x++++++++x++++++++x-",
+      "-xpxx+xxx+x+xxx+xxpx-",
+      "-x++x+++++o+++++x++x-",
+      "-xx+x+x+xxx+x+x+x+xx-",
+      "-x++++x+++x+++x++++x-",
+      "-x+xxxxxx+x+xxxxxx+x-",
+      "-x+++++++++++++++++x-",
+      "-xxxxxxxxxxxxxxxxxxx-"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "different layout",
+    "author": "ChatGPT",
+    "map": [
+      "xxxxxxxxxxxxxxxxxxxx",
+      "x+++++++++++++++x+++",
+      "x+++xxx+xxx+xxx+x+++",
+      "x++++++++++++++++++",
+      "x+++x+xxx+xxx+x+x+++",
+      "x+++x+x+++x+++x+x+++",
+      "x+++xxx+xxx+xxx+x+++",
+      "x+++++++++++++++x+++",
+      "xxxxxxxx+xxx+xxxxxxxx",
+      "x+++++o++++++++++++++",
+      "xxxxxxxx+xxx+xxxxxxxx",
+      "x+++++++++++++++x+++",
+      "x+++xxx+xxx+xxx+x+++",
+      "x++++++++++++++++++",
+      "x+++x+xxx+xxx+x+x+++",
+      "x+++x+x+++x+++x+x+++",
+      "x+++xxx+xxx+xxx+x+++",
+      "x+++++++++++++++x+++",
+      "xxxxxxxxxxxxxxxxxxxx"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "retangular map",
+    "author": "ChatGPT",
+    "map": [
+      "xxxxxxxxxxxxxxxxxxxxxxxx",
+      "x+++++++++++++++x++++++x",
+      "x+++xxx+xxx+xxx+x++++++x",
+      "x++++++++++++++++++++++x",
+      "x+++x+xxx+xxx+x+x++++++x",
+      "x+++x+x+++x+++x+x++++++x",
+      "x+++xxx+xxx+xxx+x++++++x",
+      "x+++++++++++++++x++++++x",
+      "xxxxxxxx+xxx+xxxxxxxxxx",
+      "x+++++++x+++x++++++++++x",
+      "xxxxxxxx+xxx+xxxxxxxxxx",
+      "x+++++++++o+++++x++++++x",
+      "x+++xxx+xxx+xxx+x++++++x",
+      "x++++++++++++++++++++++x",
+      "x+++x+xxx+xxx+x+x++++++x",
+      "x+++x+x+++x+++x+x++++++x",
+      "x+++xxx+xxx+xxx+x++++++x",
+      "x+++++++++++++++x++++++x",
+      "xxxxxxxxxxxxxxxxxxxxxxx"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "pumpkin ai",
+    "author": "ChatGPT",
+    "map": [
+      "xxxxxxxxxxxxxx",
+      "xx----------xx",
+      "x----xxxx----x",
+      "x---x----x---x",
+      "x--x------x--x",
+      "x-x--------x-x",
+      "x-x--------x-x",
+      "x-x---o----x-x",
+      "x-x--------x-x",
+      "x-x--------x-x",
+      "x-x--------x-x",
+      "x--x------x--x",
+      "x---x----x---x",
+      "x----xxxx----x",
+      "xx----------xx",
+      "xxxxxxxxxxxxxx"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "smile face ai",
+    "author": "ChatGPT",
+    "map": [
+      "xxxxxxxxxxxxxx",
+      "xx----------xx",
+      "x----xxxx----x",
+      "x---x----x---x",
+      "x--x------x--x",
+      "x-x--------x-x",
+      "x-x----xx---x-x",
+      "x-x--------x-x",
+      "x-x----xx---x-x",
+      "x-x--0--o--0-x-x",
+      "x--x------x--x",
+      "x---x----x---x",
+      "x----xxxx----x",
+      "xx----------xx",
+      "xxxxxxxxxxxxxx"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "SUPER MAZE",
+    "author": "ChatGPT",
+    "map": [
+      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----",
+      "xo++++++++++++++++++++++++++++x+++x",
+      "x+xxxxx+x+xxxxxx+xxxxx+x+xxxxx+x+x",
+      "x+x+++x+x+x+++x+x+++x+x+x+++x+x+x+++x",
+      "x+x+x+xxxxx+x+xxxxx+x+x+x+xxxxx+x+x",
+      "x+++x++++++++x++++++++x++++++++x+++x",
+      "xxx+x+++++++x+x+xxxxx+x+x+++++++x+xxx",
+      "x+x+x+xx+xx+x+xxxxx+x+x+x+xx+xx+x+x",
+      "x+x++++++++++x++++++++x++++++++++x+x",
+      "x+xxxxxxxxxxx+xxxxxxxxxxxxxxxxxxx+x",
+      "x+++++++++++++x+++++++++++++++++++x",
+      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     ]
   }
 ]
