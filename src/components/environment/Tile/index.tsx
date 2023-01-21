@@ -96,10 +96,10 @@ export const Tile = (props: TileProps) => {
     empty: () => <div></div>,
     player: () => <div></div>,
     power: () => (
-      <div className={`power m-auto bg-white rounded-full w-5 h-5`}></div>
+      <div className={`power m-auto bg-white rounded-full w-5 h-5 z-20`}></div>
     ),
     points: () => (
-      <div className={`point m-auto bg-white rounded-full w-1 h-1`}></div>
+      <div className={`point m-auto bg-white rounded-full w-1 h-1 z-20`}></div>
     ),
     ghostSpawn: () => {
       const borderRadius = objFromArray(createBorderRadius("ghostSpawn"));
