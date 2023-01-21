@@ -1,10 +1,9 @@
+import { RouteManager } from "./components/RouteManager";
 import { Map } from "./components/environment/Map";
 import { InfoInterface } from "./components/interface";
-import { Scoreboard } from "./components/interface/Scoreboard";
 import { GameContextProvider } from "./contexts/GameContext";
 import { MapContextProvider } from "./contexts/MapContext";
 import { PlayerContextProvider } from "./contexts/PlayerContext";
-import maps from "./resources/maps.json";
 
 export default () => {
   return (
@@ -12,8 +11,8 @@ export default () => {
       <MapContextProvider>
         <PlayerContextProvider>
           <div className="flex relative">
-            <Map map={maps[1].map} />
-            <InfoInterface/>
+            <RouteManager />
+            <InfoInterface />
           </div>
         </PlayerContextProvider>
       </MapContextProvider>
