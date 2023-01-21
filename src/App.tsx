@@ -1,21 +1,10 @@
-import { RouteManager } from "./components/RouteManager";
-import { Map } from "./components/environment/Map";
-import { InfoInterface } from "./components/interface";
-import { GameContextProvider } from "./contexts/GameContext";
-import { MapContextProvider } from "./contexts/MapContext";
-import { PlayerContextProvider } from "./contexts/PlayerContext";
+import { Route, Routes } from "react-router";
+import { MapPage } from "./pages/map";
 
 export default () => {
   return (
-    <GameContextProvider>
-      <MapContextProvider>
-        <PlayerContextProvider>
-          <div className="flex relative">
-            <RouteManager />
-            <InfoInterface />
-          </div>
-        </PlayerContextProvider>
-      </MapContextProvider>
-    </GameContextProvider>
+    <Routes>
+      <Route path="map/:id" element={<MapPage/>}/>
+    </Routes>
   );
 };
