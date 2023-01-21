@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { PlayerContext } from "../../../contexts/PlayerContext";
 import { MapContext } from "../../../contexts/MapContext";
 import "./player.css";
+import { Axis } from "../../../utils/numberToAxis";
 
 type PlayerProps = {};
 
@@ -12,7 +13,7 @@ export const Player = (props: PlayerProps) => {
   const [pressedDirection, setPressedDirection] = useState<Directions | null>(
     null
   );
-  const { getTile } = useContext(MapContext);
+  const { mapInfo, getTile, eatPoint } = useContext(MapContext);
 
   const movePlayer = () => {
     const calculateNextPosition = (direction: Directions | null) => {
@@ -87,6 +88,10 @@ export const Player = (props: PlayerProps) => {
     const loop = setInterval(() => movePlayer(), 200);
     return () => clearInterval(loop);
   }, [movePlayer]);
+
+  useEffect(() => {
+    eatPoint(position as Axis)
+  }, [position])
 
   return (
     <div

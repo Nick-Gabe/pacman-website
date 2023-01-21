@@ -34,8 +34,8 @@
       "----x+x-------x+x----",
       "-xxxx+x-xxxxx-x+xxxx-",
       "-x++++++++x++++++++x-",
-      "-x+xx+xxx+x+xxx+xx+x-",
-      "-xp+x+++++o+++++x+px-",
+      "-xpxx+xxx+x+xxx+xxpx-",
+      "-x++x+++++o+++++x++x-",
       "-xx+x+x+xxxxx+x+x+xx-",
       "-x++++x+++x+++x++++x-",
       "-x+xxxxxx+x+xxxxxx+x-",
@@ -47,8 +47,11 @@
     "id": 2,
     "name": "super mini map",
     "map": [
-      "xx",
-      "o-"
+      "x-x-x-x",
+      "-------",
+      "x-xox-x",
+      "-------",
+      "x-x-x-x"
     ]
   }
 ]

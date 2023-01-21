@@ -11,7 +11,7 @@ type MapProps = {
 
 export const Map = (props: MapProps) => {
   const { setInitialPosition } = useContext(PlayerContext);
-  const { mapInfo, setMap, getTile } = useContext(MapContext);
+  const { mapInfo, setMap, getTile, pointsEaten } = useContext(MapContext);
   const { map } = props;
 
   useEffect(() => {
@@ -34,7 +34,15 @@ export const Map = (props: MapProps) => {
               const { row, column } = numberToAxis(mapInfo, i);
               const tile = getTile(column, row);
 
-              return <Tile key={"tile" + i} type={tile} position={i} />;
+              const hasBeenEaten = pointsEaten.some(point => {
+                return point.row === row && point.column === column
+              })
+
+              return !hasBeenEaten ? (
+                <Tile key={"tile" + i} type={tile} position={i} />
+              ) : (
+                <div></div>
+              );
             })
           : null}
       </div>

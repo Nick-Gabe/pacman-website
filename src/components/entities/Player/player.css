@@ -7,7 +7,7 @@
 }
 
 .player[data-moving=true]::before {
-  animation: mouth-moving .2s linear 0s infinite alternate;
+  animation: mouth-moving .1s linear 0s infinite alternate;
 }
 
 @keyframes mouth-moving {
