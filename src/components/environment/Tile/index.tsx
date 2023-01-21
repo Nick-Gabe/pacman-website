@@ -57,7 +57,7 @@ export const Tile = (props: TileProps) => {
     });
 
     return borders || [];
-  }, []);
+  }, [adjacentTiles]);
 
   useEffect(() => {
     const tileAbove = getTile(column, row - 1);

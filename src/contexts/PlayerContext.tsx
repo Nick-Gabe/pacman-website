@@ -33,16 +33,23 @@ export const PlayerContext = createContext({} as PlayerContextState);
 export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
   const { mapInfo } = useContext(MapContext);
 
+  const [movement, setMovement] = useReducer(genericReducer<Movement>, {
+    lastDirection: null,
+    isMoving: false,
+  });
+
   const [position, setPosition] = useReducer(
     (state: InitialStateType, action: Partial<InitialStateType>) => {
-      if (action.column) {
-        if (action.column <= 0) action.column = mapInfo.columns;
-        else if (action.column === mapInfo.columns) action.column = 0;
-      }
-      if (action.row) {
-        if (action.row <= 0) action.row = mapInfo.rows;
-        else if (action.row === mapInfo.rows) action.row = 0;
-      }
+      const checkPlayerOutOfBorders = (pos: number, maxPos: number) => {
+        if (pos !== null && pos !== undefined) {
+          if (pos <= 0) pos = maxPos;
+          else if (pos > maxPos) pos = 0;
+        }
+        return pos
+      };
+
+      action.column &&= checkPlayerOutOfBorders(action.column, mapInfo.columns - 1);
+      action.row &&= checkPlayerOutOfBorders(action.row, mapInfo.rows);
 
       return {
         ...state,
@@ -54,11 +61,6 @@ export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
       row: 0,
     }
   );
-
-  const [movement, setMovement] = useReducer(genericReducer<Movement>, {
-    lastDirection: null,
-    isMoving: false,
-  });
 
   const setInitialPosition: PlayerContextState["setInitialPosition"] = map => {
     const initialRow = map.findIndex(row => row.includes("o"));

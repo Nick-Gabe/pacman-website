@@ -10,7 +10,7 @@ type MapProps = {
 };
 
 export const Map = (props: MapProps) => {
-  const { position, setInitialPosition } = useContext(PlayerContext);
+  const { setInitialPosition } = useContext(PlayerContext);
   const { mapInfo, setMap, getTile } = useContext(MapContext);
   const { map } = props;
 
@@ -24,10 +24,10 @@ export const Map = (props: MapProps) => {
       <Player />
       <div
         style={{
-          display: "grid",
           gridTemplateColumns: `repeat(${mapInfo.columns}, 1fr)`,
           gridTemplateRows: `repeat(${mapInfo.rows}, 1fr)`,
         }}
+        className="grid"
       >
         {mapInfo.map
           ? new Array(mapInfo.area).fill(0).map((x, i) => {
