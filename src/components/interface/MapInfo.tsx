@@ -5,9 +5,12 @@ export const MapInfo = () => {
   const { mapMetadata } = useContext(GameContext);
 
   return (
-    <div className="text-white font-VT323 font-bold text-5xl">
+    <div className="text-white font-VT323 font-bold text-3xl">
       <h2>Map Info</h2>
-      {/* <p>{score.toString().padStart(4, "0")}</p> */}
+      <ul className="text-2xl">
+        <li>- Name: {mapMetadata?.name}</li>
+        <li>- Id: {mapMetadata?.id}</li>
+      </ul>
     </div>
   );
 };

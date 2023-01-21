@@ -4,19 +4,26 @@ import { Tile } from "./Tile";
 import { PlayerContext } from "../../contexts/PlayerContext";
 import { MapContext } from "../../contexts/MapContext";
 import { numberToAxis } from "../../utils/numberToAxis";
+import { GameContext } from "../../contexts/GameContext";
 
 type MapProps = {
   map: string[];
+  mapMetadata: {
+    id: number;
+    name: string;
+  }
 };
 
 export const Map = (props: MapProps) => {
+  const { setMapMetadata } = useContext(GameContext);
   const { setInitialPosition } = useContext(PlayerContext);
   const { mapInfo, setMap, getTile, pointsEaten } = useContext(MapContext);
-  const { map } = props;
+  const { map, mapMetadata } = props;
 
   useEffect(() => {
     setMap(map);
     setInitialPosition(map);
+    setMapMetadata(mapMetadata);
   }, []);
 
   return (
@@ -41,7 +48,7 @@ export const Map = (props: MapProps) => {
               return !hasBeenEaten ? (
                 <Tile key={"tile" + i} type={tile} position={i} />
               ) : (
-                <div></div>
+                <div key={"tile" + i}></div>
               );
             })
           : null}
