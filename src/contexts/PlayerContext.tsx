@@ -42,13 +42,13 @@ export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
     (state: InitialStateType, action: Partial<InitialStateType>) => {
       const checkPlayerOutOfBorders = (pos: number, maxPos: number) => {
         if (pos !== null && pos !== undefined) {
-          if (pos <= 0) pos = maxPos;
-          else if (pos > maxPos) pos = 0;
+          if (pos <= 0) pos = maxPos - 1;
+          else if (pos > maxPos - 1) pos = 0;
         }
         return pos
       };
 
-      action.column &&= checkPlayerOutOfBorders(action.column, mapInfo.columns - 1);
+      action.column &&= checkPlayerOutOfBorders(action.column, mapInfo.columns);
       action.row &&= checkPlayerOutOfBorders(action.row, mapInfo.rows);
 
       return {
@@ -64,6 +64,8 @@ export const PlayerContextProvider: React.FC<PropsWithChildren> = props => {
 
   const setInitialPosition: PlayerContextState["setInitialPosition"] = map => {
     const initialRow = map.findIndex(row => row.includes("o"));
+    if(initialRow === -1) return alert('Player is missing');
+
     const initialCol = map[initialRow].indexOf("o");
 
     setPosition({
