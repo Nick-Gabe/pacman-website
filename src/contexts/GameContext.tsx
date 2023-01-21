@@ -12,6 +12,7 @@ type GameContextState = {
   mapMetadata: {
     id: number;
     name: string;
+    author: string;
   } | null;
   setMapMetadata: Dispatch<SetStateAction<GameContextState["mapMetadata"]>>;
 };

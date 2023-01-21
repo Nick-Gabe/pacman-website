@@ -11,6 +11,7 @@ type MapProps = {
   mapMetadata: {
     id: number;
     name: string;
+    author: string;
   }
 };
 
