@@ -8,6 +8,7 @@
 
 - Mapa
 > - [x] Mapa podendo ser variável
+> - [x] Paredes se interligarem
 > - [ ] Cerejas spawnarem  após matar fantasmas
 > - [ ] Bolinhas para matar fantasmas
 > - [ ] Um lado conseguir ir para o outro
